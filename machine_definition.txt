@@ -1,0 +1,24 @@
+# Estados
+q0,q1,qaccept,qreject
+
+# Alfabeto de entrada
+0,1
+
+# Alfabeto de la cinta
+0,1,_
+
+# Estado inicial
+q0
+
+# Estado de aceptación
+qaccept
+
+# Estado de rechazo
+qreject
+
+# Transiciones
+q0,0 -> q1,_,R
+q0,1 -> qreject,1,R
+q1,0 -> q1,0,R
+q1,1 -> qaccept,_,L
+q1,_ -> q1,_,R
