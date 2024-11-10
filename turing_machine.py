@@ -61,7 +61,11 @@ class TuringMachine:
 
 
     def get_configuration(self):
-        tape_str = ''.join(self.tape)
-        head_indicator = ' ' * self.head_position + '^'  # Indica la posición de la cabeza
-        return f"Cinta: {tape_str}\nEstado: {self.current_state}\n{head_indicator}"
+        # Obtener u y v
+        u = ''.join(self.tape[:self.head_position])
+        v = ''.join(self.tape[self.head_position:])
+        # Estado actual
+        q = self.current_state
+        # Formato de la configuración: u q v
+        return f"{u}{q}{v}"
 

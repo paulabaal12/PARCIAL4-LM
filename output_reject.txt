@@ -1,6 +1,2 @@
-Cinta: 1_
-Estado: q0
-^
-Cinta: 1_
-Estado: qreject
- ^
+q01_
+1qreject_

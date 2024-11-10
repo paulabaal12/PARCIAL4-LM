@@ -1,9 +1,3 @@
-Cinta: 01_
-Estado: q0
-^
-Cinta: _1_
-Estado: q1
- ^
-Cinta: ___
-Estado: qaccept
-^
+q001_
+_q11_
+qaccept___
