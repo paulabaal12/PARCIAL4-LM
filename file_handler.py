@@ -1,5 +1,6 @@
 from turing_machine import TuringMachine
 
+# Metodo para cargar una maquina de turing desde un archivo de texto
 def load_turing_machine_from_txt(filename):
     with open(filename, 'r', encoding='utf-8') as file:
         lines = file.readlines()
@@ -54,6 +55,7 @@ def load_turing_machine_from_txt(filename):
 
     return TuringMachine(states, input_alphabet, tape_alphabet, transitions, initial_state, accept_state, reject_state)
 
+# metodo para guardar las configuraciones en un archivo de texto
 def save_configurations(filename, configurations):
     with open(filename, 'w') as file:
         for config in configurations:

@@ -8,8 +8,9 @@ class TuringMachine:
         self.accept_state = accept_state
         self.reject_state = reject_state
         self.tape = []
-        self.head_position = 0
+        self.head_position = 0 #Posición de la cabeza de lectura/escritura
 
+    # Metodo para cargar la cinta con la cadena de entrada
     def load_tape(self, input_string):
         # Verificar que todos los caracteres de la cinta estén en el alfabeto de entrada
         for symbol in input_string:
@@ -18,9 +19,10 @@ class TuringMachine:
         self.tape = list(input_string) + ['_']  # Cambiar ' ' por '_'
         self.head_position = 0
 
-
+    # Metodo para ejecutar un paso de la maquina de Turing
     def step(self):
         current_symbol = self.tape[self.head_position]
+        # Verificar si hay una transicion definida para el estado actual y el símbolo actual
         if (self.current_state, current_symbol) in self.transitions:
             new_state, new_symbol, direction = self.transitions[(self.current_state, current_symbol)]
             self.tape[self.head_position] = new_symbol
@@ -39,10 +41,11 @@ class TuringMachine:
             print(f"No se encontró transición para el estado '{self.current_state}' y símbolo '{current_symbol}'")
             raise ValueError("Transición no definida para el estado actual y símbolo")
 
-
+    # Metodo para ejecutar la maquina de Turing
     def run(self, max_steps=1000):
         configurations = []
         steps = 0
+        # Ejecutar la máquina de Turing hasta que llegue a un estado de aceptación o rechazo
         while self.current_state not in {self.accept_state, self.reject_state}:
             configurations.append(self.get_configuration())
             self.step()
@@ -59,7 +62,7 @@ class TuringMachine:
                 print("Cadena rechazada.")
         return configurations
 
-
+    # obtener la configuración actual de la maquina de Turing
     def get_configuration(self):
         # Obtener u y v
         u = ''.join(self.tape[:self.head_position])

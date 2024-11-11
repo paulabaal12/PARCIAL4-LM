@@ -25,5 +25,4 @@ def main():
         save_configurations(output_file, configurations)
         print(f"Resultados guardados en {output_file}\n")
 
-if __name__ == "__main__":
-    main()
+main()
